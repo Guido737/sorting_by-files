@@ -42,7 +42,7 @@ def sort_files():
 def get_arguments():
     if len (sys.argv) < 2:
         print("Error: No source directory provided.")
-        sys.exit[1]
+        sys.exit(1)
     return sys.argv[1]
     
 def main():
