@@ -40,9 +40,9 @@ def sort_files():
             move_file(file_path, others_dir)
 
 def get_arguments():
-    if len(sys.argv) < 2:
+    if len (sys.argv) < 2:
         print("Error: No source directory provided.")
-        sys.exit(1)
+        sys.exit[1]
     return sys.argv[1]
     
 def main():
