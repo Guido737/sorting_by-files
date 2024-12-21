@@ -1,7 +1,7 @@
 
 import os
 import shutil
-import argparse
+import sys
 FILE_CATEGORIES = {
     'docs': ['.doc', '.docx', '.txt', '.rtf'],
     'pdf': ['.pdf'],
@@ -38,11 +38,14 @@ def sort_files():
         if not moved:
             others_dir = create_category_directory('others')
             move_file(file_path, others_dir)
-def main():
-    parser = argparse.ArgumentParser(description='Sort files by type.')
-    parser.add_argument('source_dir', help='Source directory containing the files to be sorted.')
-    args = parser.parse_args()
+
+def get_arguments():
+    if len(sys.argv) < 2:
+        print("Error: No source directory provided.")
+        sys.exit(1)
+    return sys.argv[1]
     
+def main():
     global source_dir
     source_dir = args.source_dir
     if not os.path.isdir(source_dir):
